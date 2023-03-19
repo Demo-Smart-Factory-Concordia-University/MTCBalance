@@ -1,0 +1,54 @@
+<!-- ==========================================================
+ 
+       MTConnect Device file for MTCBalance
+       (c) Rolf Wuthrich
+           2023 Concordia University
+
+     ========================================================== -->
+
+<MTConnectDevices>
+  <Devices>
+    <Device uuid="BALANCE-001" id="mtc_balance_1" name="ESP32-BALANCE-1">
+
+      <!-- General information -->
+      <Description>
+         Balance With Temperature Sensor
+      </Description>
+      <DataItems>
+        <DataItem category="EVENT" id="avail" type="AVAILABILITY"/>
+        <DataItem category="EVENT" id="operator" subType="OPERATOR" type="USER"/>
+      </DataItems>
+
+      <!-- Components -->
+      <Components>
+
+        <!-- Sensor -->
+        <Sensor id="balance_sensor">
+
+          <!-- Configuration -->
+          <Configuration>
+            <SensorConfiguration>
+              <FirmwareVersion>0.1</FirmwareVersion>
+              <Channels>
+                 <Channel number="1" name="Temperature">
+                   <Description>Temperature in celcius</Description>
+                 </Channel>
+                 <Channel number="2" name="Mass">
+                   <Description>Mass in kilogram</Description>
+                 </Channel>
+              </Channels>
+            </SensorConfiguration>
+          </Configuration>
+
+          <!-- DataItems -->
+          <DataItems>
+            <DataItem category="SAMPLE" id="Temp" type="TEMPERATURE" units="CELCIUS"/>
+            <DataItem category="SAMPLE" id="Mass" type="MASS" units="KILOGRAM"/>
+          </DataItems>
+
+        </Sensor>
+
+      </Components>
+    </Device>
+  </Devices>
+</MTConnectDevices>
